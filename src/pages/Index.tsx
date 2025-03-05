@@ -6,6 +6,8 @@ import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
 import Destinations from '@/components/Destinations';
 import FeaturedListings from '@/components/FeaturedListings';
+import TravelAgents from '@/components/TravelAgents';
+import Testimonials from '@/components/Testimonials';
 import Footer from '@/components/Footer';
 
 const Index = () => {
@@ -83,6 +85,9 @@ const Index = () => {
       
       <Destinations />
       
+      {/* Add Travel Agents section before experiences */}
+      <TravelAgents />
+      
       <section className="py-16 relative overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
@@ -108,6 +113,9 @@ const Index = () => {
       </section>
       
       <FeaturedListings />
+      
+      {/* Add Testimonials */}
+      <Testimonials />
       
       <Footer />
     </div>
