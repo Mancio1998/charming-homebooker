@@ -32,17 +32,14 @@ const Navigation = () => {
         }
       )}
     >
-      <div className="max-w-7xl mx-auto">
-        <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
             <a href="/" className="flex items-center space-x-2">
-              <span className={cn(
-                "text-2xl font-bold font-playfair transition-colors duration-300",
-                {"text-black": isScrolled, "text-white": !isScrolled}
-              )}>
-                Charming<span className="text-italy-terracotta">Italy</span>
-              </span>
+              <img 
+                src="https://prod-cdn.charmingitaly.com/_nuxt/img/logo.97170d3.svg" 
+                alt="Charming Italy"
+                className="h-8 w-auto"
+              />
             </a>
           </div>
 
