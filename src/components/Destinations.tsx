@@ -8,7 +8,7 @@ const destinations = [
     id: 1,
     name: 'Toscana',
     image: 'https://www.voglioviverecosi.com/wp-content/uploads/2021/01/andare-a-vivere-in-toscana.jpg',
-    properties: 458
+    accomodations: 458
   },
   {
     id: 2,
