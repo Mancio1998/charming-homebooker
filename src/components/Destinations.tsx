@@ -7,7 +7,7 @@ const destinations = [
   {
     id: 1,
     name: 'Toscana',
-    image: 'https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3',
+    image: 'https://www.voglioviverecosi.com/wp-content/uploads/2021/01/andare-a-vivere-in-toscana.jpg',
     properties: 458
   },
   {
