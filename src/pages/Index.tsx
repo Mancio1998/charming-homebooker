@@ -1,10 +1,10 @@
-
 import React, { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
 import Destinations from '@/components/Destinations';
+import Experiences from '@/components/Experiences';
 import FeaturedListings from '@/components/FeaturedListings';
 import TravelAgents from '@/components/TravelAgents';
 import Testimonials from '@/components/Testimonials';
@@ -85,36 +85,12 @@ const Index = () => {
       
       <Destinations />
       
-      {/* Add Travel Agents section before experiences */}
-      <TravelAgents />
+      <Experiences />
       
-      <section className="py-16 relative overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center opacity-20"
-          style={{ 
-            backgroundImage: "url('https://images.unsplash.com/photo-1605216663480-b5266c18e9c7?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3')", 
-          }}
-        />
-        <div className="container px-4 sm:px-6 lg:px-8 mx-auto relative z-10">
-          <div className="max-w-3xl mx-auto text-center bg-white/80 backdrop-blur-sm p-8 sm:p-12 rounded-xl shadow-sm">
-            <span className="inline-block text-italy-terracotta font-medium mb-2">Esperienze</span>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-6">Vivi l'Italia autentica</h2>
-            <p className="text-gray-600 mb-8">
-              Scopri attività uniche guidate da esperti locali, dai corsi di cucina tradizionale alle escursioni in barca lungo la costa.
-            </p>
-            <a 
-              href="#" 
-              className="inline-block bg-italy-terracotta text-white px-6 py-3 rounded-full font-medium hover:bg-italy-terracotta/90 transition-all duration-300 btn-effect"
-            >
-              Esplora le esperienze
-            </a>
-          </div>
-        </div>
-      </section>
+      <TravelAgents />
       
       <FeaturedListings />
       
-      {/* Add Testimonials */}
       <Testimonials />
       
       <Footer />
