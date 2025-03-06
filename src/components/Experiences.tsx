@@ -23,7 +23,7 @@ const experiences = [
     price: 65,
     rating: 4.98,
     reviews: 487,
-    image: "https://images.unsplash.com/photo-1605216663480-b5266c18e9c7?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3",
+    image: "https://tuscookany.com/storage/media/2022/09/08/widgets/collage/lightbox/tuscookany-cooking-holidays-in-italy-moroccan-feast-at-the-mediterranean-cookery-course-at-casa-ombuto-1625.jpg",
     location: "Firenze",
     icon: <Utensils className="w-4 h-4" />
   },
@@ -34,7 +34,7 @@ const experiences = [
     price: 55,
     rating: 4.92,
     reviews: 216,
-    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3",
+    image: "https://www.sterlingvineyards.com/dw/image/v2/BDBC_PRD/on/demandware.static/-/Sites-Sterling-Library/default/dwc2f86b06/images/@Horizontal_Images/840x650/840x650_Tasting_Reserve_Sterling-7841.jpg?sw=768&sfrm=jpg",
     location: "Montalcino",
     icon: <Wine className="w-4 h-4" />
   },
@@ -45,7 +45,7 @@ const experiences = [
     price: 72,
     rating: 4.95,
     reviews: 189,
-    image: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3",
+    image: "https://www.dolomitemountains.com/res/photo/gallery/0x0/9510_1.jpg",
     location: "Cortina d'Ampezzo",
     icon: <Mountain className="w-4 h-4" />
   },
@@ -56,7 +56,7 @@ const experiences = [
     price: 45,
     rating: 4.89,
     reviews: 167,
-    image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3",
+    image: "https://cicloposse.com/wp-content/uploads/2016/03/umbria-cycling-vacation.jpg",
     location: "Assisi",
     icon: <Bike className="w-4 h-4" />
   },
@@ -67,7 +67,7 @@ const experiences = [
     price: 39,
     rating: 4.94,
     reviews: 312,
-    image: "https://images.unsplash.com/photo-1433086966358-54859d0ed716?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3",
+    image: "https://cdn-imgix.headout.com/media/images/50799105088640d5b9b4d082c7566e6b-26534-Naples-PompeiiandPositanoDayTripfromNaples-05313.jpg?w=1041.6000000000001&h=651&crop=faces&auto=compress%2Cformat&fit=min",
     location: "Napoli",
     icon: <Map className="w-4 h-4" />
   }
