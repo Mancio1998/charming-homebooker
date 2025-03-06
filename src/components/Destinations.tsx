@@ -108,7 +108,7 @@ export default function Home() {
       <a
         href="/destinazioni"
         className={cn(
-          "inline-block font-medium text-italy-terracotta hover:text-italy-terracotta/80 transition-colors duration-300 text-[18px]",
+          "inline-block font-medium text-italy-terracotta hover:text-italy-terracotta/80 transition-colors duration-300 text-[28px]",
           "relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-italy-terracotta",
           "after:scale-x-0 after:origin-right hover:after:scale-x-100 hover:after:origin-left after:transition-transform after:duration-300"
         )}
