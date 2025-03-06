@@ -13,7 +13,7 @@ const destinations = [
   {
     id: 2,
     name: 'Costiera Amalfitana',
-    image: 'https://images.unsplash.com/photo-1533165858-e498342dfbe4?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3',
+    image: 'https://static2-viaggi.corriereobjects.it/wp-content/uploads/2024/05/costiera-amalfitana.jpg?v=1715186644',
     properties: 267
   },
   {
