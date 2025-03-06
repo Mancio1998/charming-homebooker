@@ -1,18 +1,1080 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>charming-homebooker</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
-    <meta property="og:image" content="/og-image.png" />
+    <title>CharmingItaly - Viaggi Autentici in Italia</title>
+    <meta name="description" content="CharmingItaly ti offre esperienze autentiche e alloggi esclusivi in tutta Italia, con itinerari personalizzati creati da esperti locali." />
+    
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
   </head>
 
   <body>
-    <div id="root"></div>
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-    <script type="module" src="/src/main.tsx"></script>
+    <!-- Navigation -->
+    <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all py-4 px-6 md:px-10">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex items-center justify-between">
+          <!-- Logo -->
+          <div class="flex items-center">
+            <a href="/" class="flex items-center space-x-2">
+              <span class="text-2xl font-bold font-playfair text-white">
+                Charming<span class="text-italy-terracotta">Italy</span>
+              </span>
+            </a>
+          </div>
+
+          <!-- Desktop Navigation -->
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="#destinations" class="font-medium text-white hover:text-italy-terracotta transition-colors duration-300">
+              Destinazioni
+            </a>
+            <a href="#experiences" class="font-medium text-white hover:text-italy-terracotta transition-colors duration-300">
+              Esperienze
+            </a>
+            <a href="#accommodations" class="font-medium text-white hover:text-italy-terracotta transition-colors duration-300">
+              Alloggi
+            </a>
+          </div>
+
+          <!-- User Menu -->
+          <div class="hidden md:flex items-center space-x-4">
+            <button class="rounded-full text-white hover:bg-white hover:bg-opacity-10 transition-colors duration-300 p-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+              <span>IT</span>
+            </button>
+            
+            <button class="rounded-full border border-white text-white hover:bg-white hover:bg-opacity-10 transition-colors duration-300 px-4 py-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              <span>Accedi</span>
+            </button>
+          </div>
+
+          <!-- Mobile menu button -->
+          <button id="mobile-menu-button" class="md:hidden p-2 rounded-full text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="menu-icon">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden" id="close-icon">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="md:hidden bg-white absolute top-full left-0 right-0 shadow-lg hidden animate-slide-down">
+        <div class="px-6 py-4 space-y-3">
+          <a href="#destinations" class="block py-2 font-medium text-gray-800 hover:text-italy-terracotta">
+            Destinazioni
+          </a>
+          <a href="#experiences" class="block py-2 font-medium text-gray-800 hover:text-italy-terracotta">
+            Esperienze
+          </a>
+          <a href="#accommodations" class="block py-2 font-medium text-gray-800 hover:text-italy-terracotta">
+            Alloggi
+          </a>
+          <hr class="my-2">
+          <div class="flex items-center justify-between py-2">
+            <span class="font-medium text-gray-800">Lingua</span>
+            <button class="text-gray-800 flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+              <span>IT</span>
+            </button>
+          </div>
+          <button class="w-full bg-italy-terracotta text-white py-2 px-4 rounded flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <span>Accedi</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="relative h-screen min-h-[600px] w-full overflow-hidden">
+      <!-- Background Image -->
+      <div 
+        class="absolute inset-0 bg-cover bg-center filter-grayscale"
+        style="background-image: url('https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&q=80&w=2066&ixlib=rb-4.0.3');"
+      >
+        <!-- Overlay Gradient -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/10"></div>
+      </div>
+
+      <!-- Content -->
+      <div class="relative z-10 h-full flex flex-col items-center justify-center px-6">
+        <div class="text-center max-w-4xl mx-auto mb-8 sm:mb-12">
+          <span class="inline-block text-white/90 font-medium mb-4 uppercase tracking-wider text-sm animate-fade-in">
+            Viaggi personalizzati con esperti locali
+          </span>
+          
+          <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight animate-fade-in delay-200">
+            Scopri la Bellezza Autentica dell'Italia
+          </h1>
+          <p class="text-xl sm:text-2xl text-white/90 font-light max-w-2xl mx-auto animate-fade-in delay-400">
+            Itinerari su misura creati da agenti locali esperti
+          </p>
+        </div>
+
+        <div class="w-full max-w-4xl animate-fade-in delay-600">
+          <!-- Search Bar -->
+          <div class="glass-effect rounded-lg p-4 sm:p-6">
+            <form class="flex flex-col sm:flex-row gap-4">
+              <div class="flex-1">
+                <label for="destination" class="block text-sm font-medium text-gray-800 mb-1">Destinazione</label>
+                <select id="destination" class="w-full p-3 rounded-md border-0 bg-white text-gray-800 focus:ring-2 focus:ring-italy-terracotta">
+                  <option value="">Dove vuoi andare?</option>
+                  <option value="toscana">Toscana</option>
+                  <option value="sicilia">Sicilia</option>
+                  <option value="puglia">Puglia</option>
+                  <option value="amalfi">Costiera Amalfitana</option>
+                  <option value="veneto">Venezia e Veneto</option>
+                </select>
+              </div>
+              
+              <div class="flex-1">
+                <label for="dates" class="block text-sm font-medium text-gray-800 mb-1">Date del viaggio</label>
+                <input id="dates" type="text" placeholder="Seleziona le date" class="w-full p-3 rounded-md border-0 bg-white text-gray-800 focus:ring-2 focus:ring-italy-terracotta">
+              </div>
+              
+              <div class="flex-1">
+                <label for="travelers" class="block text-sm font-medium text-gray-800 mb-1">Viaggiatori</label>
+                <select id="travelers" class="w-full p-3 rounded-md border-0 bg-white text-gray-800 focus:ring-2 focus:ring-italy-terracotta">
+                  <option value="1">1 persona</option>
+                  <option value="2" selected>2 persone</option>
+                  <option value="3">3 persone</option>
+                  <option value="4">4 persone</option>
+                  <option value="more">5+ persone</option>
+                </select>
+              </div>
+              
+              <div class="sm:self-end">
+                <button type="submit" class="w-full sm:w-auto bg-italy-terracotta hover:bg-italy-terracotta/90 text-white font-medium py-3 px-6 rounded-md transition-colors duration-300 mt-4 sm:mt-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline mr-2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.3-4.3"></path>
+                  </svg>
+                  Cerca
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        
+        <div class="flex flex-wrap justify-center gap-6 mt-8 animate-fade-in delay-800">
+          <div class="flex items-center gap-2">
+            <div class="bg-white/90 rounded-full p-1">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-italy-terracotta">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
+              </svg>
+            </div>
+            <span class="text-white text-sm">Itinerari personalizzati</span>
+          </div>
+          
+          <div class="flex items-center gap-2">
+            <div class="bg-white/90 rounded-full p-1">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-italy-terracotta">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+              </svg>
+            </div>
+            <span class="text-white text-sm">Esperti locali</span>
+          </div>
+          
+          <div class="flex items-center gap-2">
+            <div class="bg-white/90 rounded-full p-1">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-italy-terracotta">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
+              </svg>
+            </div>
+            <span class="text-white text-sm">Esperienze uniche</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Intro Section -->
+    <section class="py-12 sm:py-20">
+      <div class="container px-4 sm:px-6 lg:px-8 mx-auto text-center">
+        <span class="inline-block text-italy-terracotta font-medium mb-2">L'Italia come non l'hai mai vista</span>
+        <h2 class="text-3xl sm:text-4xl font-bold mb-6">Esperienze autentiche in luoghi straordinari</h2>
+        <p class="text-gray-600 max-w-3xl mx-auto mb-10">
+          CharmingItaly ti offre una selezione esclusiva di alloggi e esperienze che raccontano l'autentica essenza italiana:
+          dalla costa alle montagne, dalle città d'arte ai borghi nascosti.
+        </p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
+            <div class="w-14 h-14 bg-italy-cream rounded-full flex items-center justify-center text-italy-terracotta mx-auto mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5V10.75M2.25 21h1.5m18 0h-18M2.25 9l4.5-1.636M18.75 3l-1.5.545m0 6.205 3 1m1.5.5-1.5-.5M6.75 7.364V3h-3v18m3-13.636 10.5-3.819" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Alloggi Unici</h3>
+            <p class="text-gray-600">
+              Dalle ville con vista sul mare ai casali in campagna, scopri sistemazioni autentiche e di carattere.
+            </p>
+          </div>
+          
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
+            <div class="w-14 h-14 bg-italy-cream rounded-full flex items-center justify-center text-italy-terracotta mx-auto mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498 4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 0 0-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0Z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Destinazioni Esclusive</h3>
+            <p class="text-gray-600">
+              Esplora città d'arte, villaggi costieri e campagne idilliache selezionate dai nostri esperti locali.
+            </p>
+          </div>
+          
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
+            <div class="w-14 h-14 bg-italy-cream rounded-full flex items-center justify-center text-italy-terracotta mx-auto mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8.25v-1.5m0 1.5c-1.355 0-2.697.056-4.024.166C6.845 8.51 6 9.473 6 10.608v2.513m6-4.87c1.355 0 2.697.055 4.024.165C17.155 8.51 18 9.473 18 10.608v2.513m-3-4.87v-1.5m-6 1.5v-1.5m12 9.75-1.5.75a3.354 3.354 0 0 1-3 0 3.354 3.354 0 0 0-3 0 3.354 3.354 0 0 1-3 0 3.354 3.354 0 0 0-3 0 3.354 3.354 0 0 1-3 0L3 16.5m15-3.38a48.474 48.474 0 0 0-6-.37c-2.032 0-4.034.125-6 .37m12 0c.39.049.777.102 1.163.16 1.07.16 1.837 1.094 1.837 2.175v5.17c0 .62-.504 1.124-1.125 1.124H4.125A1.125 1.125 0 0 1 3 20.625v-5.17c0-1.08.768-2.014 1.837-2.174A47.78 47.78 0 0 1 6 13.12M12.265 3.11a.375.375 0 1 1-.53 0L12 2.845l.265.265Zm-3 0a.375.375 0 1 1-.53 0L9 2.845l.265.265Zm6 0a.375.375 0 1 1-.53 0L15 2.845l.265.265Z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Esperienze Autentiche</h3>
+            <p class="text-gray-600">
+              Lezioni di cucina, degustazioni di vino e tour guidati per vivere l'Italia come un vero locale.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Destinations Section -->
+    <section id="destinations" class="py-16 sm:py-24 bg-italy-cream">
+      <div class="container px-4 sm:px-6 lg:px-8 mx-auto">
+        <div class="text-center mb-12">
+          <span class="inline-block text-italy-terracotta font-medium mb-2">Destinazioni</span>
+          <h2 class="text-3xl sm:text-4xl font-bold mb-4">Luoghi iconici in Italia</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Scopri le destinazioni più affascinanti d'Italia, dai paesaggi toscani alle coste mediterranee.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 destinations-grid">
+          <div class="group destination-card" data-aos="fade-up" data-aos-delay="100">
+            <a href="#" class="block h-full overflow-hidden rounded-xl shadow-sm transition-all duration-300 hover:shadow-lg">
+              <div class="relative h-72 w-full overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+                <img 
+                  src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3" 
+                  alt="Toscana"
+                  class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div class="absolute bottom-0 left-0 z-20 p-6 text-white">
+                  <h3 class="text-2xl font-bold mb-1">Toscana</h3>
+                  <p class="text-white/80">458 proprietà</p>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="group destination-card" data-aos="fade-up" data-aos-delay="200">
+            <a href="#" class="block h-full overflow-hidden rounded-xl shadow-sm transition-all duration-300 hover:shadow-lg">
+              <div class="relative h-72 w-full overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+                <img 
+                  src="https://images.unsplash.com/photo-1533165858-e498342dfbe4?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3" 
+                  alt="Costiera Amalfitana"
+                  class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div class="absolute bottom-0 left-0 z-20 p-6 text-white">
+                  <h3 class="text-2xl font-bold mb-1">Costiera Amalfitana</h3>
+                  <p class="text-white/80">267 proprietà</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          
+          <div class="group destination-card" data-aos="fade-up" data-aos-delay="300">
+            <a href="#" class="block h-full overflow-hidden rounded-xl shadow-sm transition-all duration-300 hover:shadow-lg">
+              <div class="relative h-72 w-full overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+                <img 
+                  src="https://images.unsplash.com/photo-1514890547357-a9ee288728e0?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3" 
+                  alt="Venezia"
+                  class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div class="absolute bottom-0 left-0 z-20 p-6 text-white">
+                  <h3 class="text-2xl font-bold mb-1">Venezia</h3>
+                  <p class="text-white/80">324 proprietà</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          
+          <div class="group destination-card" data-aos="fade-up" data-aos-delay="100">
+            <a href="#" class="block h-full overflow-hidden rounded-xl shadow-sm transition-all duration-300 hover:shadow-lg">
+              <div class="relative h-72 w-full overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+                <img 
+                  src="https://images.unsplash.com/photo-1523365280197-dbf36f767778?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3" 
+                  alt="Sicilia"
+                  class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div class="absolute bottom-0 left-0 z-20 p-6 text-white">
+                  <h3 class="text-2xl font-bold mb-1">Sicilia</h3>
+                  <p class="text-white/80">389 proprietà</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          
+          <div class="group destination-card" data-aos="fade-up" data-aos-delay="200">
+            <a href="#" class="block h-full overflow-hidden rounded-xl shadow-sm transition-all duration-300 hover:shadow-lg">
+              <div class="relative h-72 w-full overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+                <img 
+                  src="https://images.unsplash.com/photo-1583648870855-1bed8c439a1e?auto=format&fit=crop&q=80&w=2071&ixlib=rb-4.0.3" 
+                  alt="Lago di Como"
+                  class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div class="absolute bottom-0 left-0 z-20 p-6 text-white">
+                  <h3 class="text-2xl font-bold mb-1">Lago di Como</h3>
+                  <p class="text-white/80">156 proprietà</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          
+          <div class="group destination-card" data-aos="fade-up" data-aos-delay="300">
+            <a href="#" class="block h-full overflow-hidden rounded-xl shadow-sm transition-all duration-300 hover:shadow-lg">
+              <div class="relative h-72 w-full overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+                <img 
+                  src="https://images.unsplash.com/photo-1591804206650-1e83dae3efd2?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3" 
+                  alt="Cinque Terre"
+                  class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div class="absolute bottom-0 left-0 z-20 p-6 text-white">
+                  <h3 class="text-2xl font-bold mb-1">Cinque Terre</h3>
+                  <p class="text-white/80">113 proprietà</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="text-center mt-10">
+          <a href="#" class="inline-block font-medium text-italy-terracotta hover:text-italy-terracotta/80 transition-colors duration-300 relative link-underline">
+            Visualizza tutte le destinazioni
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Travel Agents Section -->
+    <section id="agents" class="py-16 sm:py-24 bg-white">
+      <div class="container px-4 sm:px-6 lg:px-8 mx-auto">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-12 gap-6">
+          <div class="md:max-w-2xl">
+            <span class="inline-flex items-center gap-2 text-italy-terracotta font-medium mb-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-italy-terracotta">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+              Agenzie di Viaggio Locali
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-bold mb-4">Il tuo viaggio curato da esperti italiani</h2>
+            <p class="text-gray-600">
+              Con CharmingItaly, il tuo viaggio è progettato da chi conosce ogni angolo dell'Italia. 
+              I nostri agenti locali creano itinerari personalizzati, accesso a luoghi esclusivi e consigli autentici.
+            </p>
+          </div>
+          <div class="shrink-0">
+            <a 
+              href="#" 
+              class="inline-block bg-transparent border-2 border-italy-terracotta text-italy-terracotta px-6 py-3 rounded-full font-medium hover:bg-italy-terracotta hover:text-white transition-all duration-300 btn-effect"
+            >
+              Tutti gli agenti
+            </a>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 agent-cards">
+          <div class="agent-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="bg-white border border-gray-100 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 h-full">
+              <div class="relative">
+                <img 
+                  src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=1000&ixlib=rb-4.0.3" 
+                  alt="Giulia Rossi"
+                  class="w-full h-64 object-cover object-center"
+                />
+                <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/70 to-transparent">
+                  <div class="flex items-center gap-1 text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-italy-terracotta">
+                      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span class="text-sm font-medium">Toscana</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="p-6">
+                <div class="flex justify-between items-center mb-2">
+                  <h3 class="text-xl font-bold">Giulia Rossi</h3>
+                  <div class="flex items-center gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-italy-terracotta">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                    <span class="font-medium">4.9</span>
+                    <span class="text-gray-500 text-sm">(132)</span>
+                  </div>
+                </div>
+                
+                <p class="text-gray-600 mb-4">Turismo enogastronomico & Percorsi artistici</p>
+                
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="inline-block bg-gray-100 rounded-full px-3 py-1 text-xs font-medium text-gray-700">
+                    Itinerari personalizzati
+                  </span>
+                  <span class="inline-block bg-gray-100 rounded-full px-3 py-1 text-xs font-medium text-gray-700">
+                    Supporto locale
+                  </span>
+                  <span class="inline-block bg-gray-100 rounded-full px-3 py-1 text-xs font-medium text-gray-700">
+                    Parla italiano/inglese
+                  </span>
+                </div>
+                
+                <a 
+                  href="#" 
+                  class="flex items-center justify-center w-full gap-2 py-2.5 mt-2 border-2 border-italy-terracotta text-italy-terracotta rounded-lg font-medium transition-all duration-300 hover:bg-italy-terracotta hover:text-white"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                  </svg>
+                  Contatta Giulia
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="agent-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="bg-white border border-gray-100 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 h-full">
+              <div class="relative">
+                <img 
+                  src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?auto=format&fit=crop&q=80&w=1000&ixlib=rb-4.0.3" 
+                  alt="Marco Bianchi"
+                  class="w-full h-64 object-cover object-center"
+                />
+                <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/70 to-transparent">
+                  <div class="flex items-center gap-1 text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-italy-terracotta">
+                      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span class="text-sm font-medium">Costiera Amalfitana</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="p-6">
+                <div class="flex justify-between items-center mb-2">
+                  <h3 class="text-xl font-bold">Marco Bianchi</h3>
+                  <div class="flex items-center gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-italy-terracotta">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                    <span class="font-medium">4.8</span>
+                    <span class="text-gray-500 text-sm">(98)</span>
+                  </div>
+                </div>
+                
+                <p class="text-gray-600 mb-4">Viaggi costieri & Escursioni in barca</p>
+                
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="inline-block bg-gray-100 rounded-full px-3 py-1 text-xs font-medium text-gray-700">
+                    Itinerari personalizzati
+                  </span>
+                  <span class="inline-block bg-gray-100 rounded-full px-3 py-1 text-xs font-medium text-gray-700">
+                    Supporto locale
+                  </span>
+                  <span class="inline-block bg-gray-100 rounded-full px-3 py-1 text-xs font-medium text-gray-700">
+                    Parla italiano/inglese
+                  </span>
+                </div>
+                
+                <a 
+                  href="#" 
+                  class="flex items-center justify-center w-full gap-2 py-2.5 mt-2 border-2 border-italy-terracotta text-italy-terracotta rounded-lg font-medium transition-all duration-300 hover:bg-italy-terracotta hover:text-white"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                  </svg>
+                  Contatta Marco
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="agent-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="bg-white border border-gray-100 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 h-full">
+              <div class="relative">
+                <img 
+                  src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&q=80&w=1000&ixlib=rb-4.0.3" 
+                  alt="Sofia Marino"
+                  class="w-full h-64 object-cover object-center"
+                />
+                <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/70 to-transparent">
+                  <div class="flex items-center gap-1 text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-italy-terracotta">
+                      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span class="text-sm font-medium">Sicilia</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="p-6">
+                <div class="flex justify-between items-center mb-2">
+                  <h3 class="text-xl font-bold">Sofia Marino</h3>
+                  <div class="flex items-center gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-italy-terracotta">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                    <span class="font-medium">4.9</span>
+                    <span class="text-gray-500 text-sm">(156)</span>
+                  </div>
+                </div>
+                
+                <p class="text-gray-600 mb-4">Storia locale & Tradizioni culturali</p>
+                
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="inline-block bg-gray-100 rounded-full px-3 py-1 text-xs font-medium text-gray-700">
+                    Itinerari personalizzati
+                  </span>
+                  <span class="inline-block bg-gray-100 rounded-full px-3 py-1 text-xs font-medium text-gray-700">
+                    Supporto locale
+                  </span>
+                  <span class="inline-block bg-gray-100 rounded-full px-3 py-1 text-xs font-medium text-gray-700">
+                    Parla italiano/inglese
+                  </span>
+                </div>
+                
+                <a 
+                  href="#" 
+                  class="flex items-center justify-center w-full gap-2 py-2.5 mt-2 border-2 border-italy-terracotta text-italy-terracotta rounded-lg font-medium transition-all duration-300 hover:bg-italy-terracotta hover:text-white"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                  </svg>
+                  Contatta Sofia
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mt-12 p-8 bg-italy-cream rounded-xl" data-aos="fade-up">
+          <div class="flex flex-col md:flex-row gap-8 items-center">
+            <div class="shrink-0 w-20 h-20 bg-white rounded-full flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-italy-terracotta">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold mb-2">Diventa un agente locale CharmingItaly</h3>
+              <p class="text-gray-600 mb-4">
+                Sei un esperto locale o un'agenzia di viaggi specializzata in una regione italiana? 
+                Unisciti alla nostra rete di agenti e condividi la tua conoscenza con viaggiatori da tutto il mondo.
+              </p>
+              <a href="#" class="inline-block text-italy-terracotta font-medium hover:underline">
+                Scopri di più sulla partnership →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experiences Banner -->
+    <section id="experiences" class="py-16 relative overflow-hidden">
+      <div 
+        class="absolute inset-0 bg-cover bg-center opacity-20"
+        style="background-image: url('https://images.unsplash.com/photo-1605216663480-b5266c18e9c7?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3');"
+      ></div>
+      <div class="container px-4 sm:px-6 lg:px-8 mx-auto relative z-10">
+        <div class="max-w-3xl mx-auto text-center bg-white/80 backdrop-blur-sm p-8 sm:p-12 rounded-xl shadow-sm">
+          <span class="inline-block text-italy-terracotta font-medium mb-2">Esperienze</span>
+          <h2 class="text-3xl sm:text-4xl font-bold mb-6">Vivi l'Italia autentica</h2>
+          <p class="text-gray-600 mb-8">
+            Scopri attività uniche guidate da esperti locali, dai corsi di cucina tradizionale alle escursioni in barca lungo la costa.
+          </p>
+          <a 
+            href="#" 
+            class="inline-block bg-italy-terracotta text-white px-6 py-3 rounded-full font-medium hover:bg-italy-terracotta/90 transition-all duration-300 btn-effect"
+          >
+            Esplora le esperienze
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Listings -->
+    <section id="accommodations" class="py-16 sm:py-24">
+      <div class="container px-4 sm:px-6 lg:px-8 mx-auto">
+        <div class="text-center mb-12">
+          <span class="inline-block text-italy-terracotta font-medium mb-2">Alloggi</span>
+          <h2 class="text-3xl sm:text-4xl font-bold mb-4">Soggiorna in luoghi straordinari</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Le migliori sistemazioni in tutta Italia, selezionate per offrire un'esperienza autentica e indimenticabile.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 listings-grid">
+          <!-- Listing Card 1 -->
+          <div class="listing-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="group h-full rounded-xl overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md">
+              <div class="relative aspect-[4/3] overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1615529328331-f0b8c57a7e30?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3" 
+                  alt="Villa con Vista sul Mare"
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <button 
+                  class="absolute top-3 right-3 p-2 rounded-full bg-white/80 hover:bg-white transition-colors duration-300 z-10"
+                  aria-label="Save to favorites"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-700">
+                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+                  </svg>
+                </button>
+              </div>
+              <div class="p-4">
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="font-bold text-lg line-clamp-1">Villa con Vista sul Mare</h3>
+                  <div class="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-italy-terracotta mr-1">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                    <span class="font-medium">4.92</span>
+                  </div>
+                </div>
+                <p class="text-gray-500 mb-3">Positano, Campania</p>
+                <p class="font-medium">
+                  <span class="text-lg">€320</span> <span class="text-gray-500">/ notte</span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Listing Card 2 -->
+          <div class="listing-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="group h-full rounded-xl overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md">
+              <div class="relative aspect-[4/3] overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3" 
+                  alt="Casale Toscano con Piscina"
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <button 
+                  class="absolute top-3 right-3 p-2 rounded-full bg-white/80 hover:bg-white transition-colors duration-300 z-10"
+                  aria-label="Save to favorites"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-700">
+                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+                  </svg>
+                </button>
+              </div>
+              <div class="p-4">
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="font-bold text-lg line-clamp-1">Casale Toscano con Piscina</h3>
+                  <div class="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-italy-terracotta mr-1">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                    <span class="font-medium">4.85</span>
+                  </div>
+                </div>
+                <p class="text-gray-500 mb-3">Siena, Toscana</p>
+                <p class="font-medium">
+                  <span class="text-lg">€220</span> <span class="text-gray-500">/ notte</span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Listing Card 3 -->
+          <div class="listing-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="group h-full rounded-xl overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md">
+              <div class="relative aspect-[4/3] overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1594734415578-00fc9540929b?auto=format&fit=crop&q=80&w=2050&ixlib=rb-4.0.3" 
+                  alt="Loft Storico nel Centro"
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <button 
+                  class="absolute top-3 right-3 p-2 rounded-full bg-white/80 hover:bg-white transition-colors duration-300 z-10"
+                  aria-label="Save to favorites"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-700">
+                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+                  </svg>
+                </button>
+              </div>
+              <div class="p-4">
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="font-bold text-lg line-clamp-1">Loft Storico nel Centro</h3>
+                  <div class="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-italy-terracotta mr-1">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                    <span class="font-medium">4.78</span>
+                  </div>
+                </div>
+                <p class="text-gray-500 mb-3">Firenze, Toscana</p>
+                <p class="font-medium">
+                  <span class="text-lg">€185</span> <span class="text-gray-500">/ notte</span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Listing Card 4 -->
+          <div class="listing-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="group h-full rounded-xl overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md">
+              <div class="relative aspect-[4/3] overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1498503182468-3b51cbb6cb24?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3" 
+                  alt="Appartamento Vista Duomo"
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <button 
+                  class="absolute top-3 right-3 p-2 rounded-full bg-white/80 hover:bg-white transition-colors duration-300 z-10"
+                  aria-label="Save to favorites"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-700">
+                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+                  </svg>
+                </button>
+              </div>
+              <div class="p-4">
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="font-bold text-lg line-clamp-1">Appartamento Vista Duomo</h3>
+                  <div class="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-italy-terracotta mr-1">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                    <span class="font-medium">4.9</span>
+                  </div>
+                </div>
+                <p class="text-gray-500 mb-3">Milano, Lombardia</p>
+                <p class="font-medium">
+                  <span class="text-lg">€240</span> <span class="text-gray-500">/ notte</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-10">
+          <a href="#" class="inline-block font-medium text-italy-terracotta hover:text-italy-terracotta/80 transition-colors duration-300 relative link-underline">
+            Visualizza tutti gli alloggi
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 sm:py-24 bg-gradient-to-br from-white to-italy-cream/50">
+      <div class="container px-4 sm:px-6 lg:px-8 mx-auto">
+        <div class="text-center mb-12">
+          <span class="inline-flex items-center gap-1.5 text-italy-terracotta font-medium mb-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-italy-terracotta">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            Esperienze dei Viaggiatori
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-bold mb-4">Cosa dicono i nostri clienti</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Scopri le esperienze autentiche vissute dai viaggiatori che hanno scelto i nostri agenti locali per organizzare il loro viaggio in Italia.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 testimonials-grid">
+          <!-- Testimonial 1 -->
+          <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="bg-white p-6 sm:p-8 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col">
+              <div class="mb-6 flex-grow">
+                <div class="flex mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-italy-terracotta">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-italy-terracotta">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-italy-terracotta">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-italy-terracotta">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-italy-terracotta">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-italy-terracotta/20 mb-2">
+                  <path d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"></path>
+                  <path d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"></path>
+                </svg>
+                <p class="text-gray-700 italic mb-4">"Il nostro tour della Toscana è stato perfetto grazie a Giulia. Ha organizzato delle degustazioni in cantine esclusive che non avremmo mai scoperto da soli."</p>
+                <div class="text-sm text-gray-500">
+                  <span class="font-medium text-gray-700">Viaggio: </span>
+                  Tour enogastronomico in Toscana
+                </div>
+                <div class="text-sm text-gray-500">
+                  <span class="font-medium text-gray-700">Organizzato da: </span>
+                  Giulia Rossi
+                </div>
+              </div>
+              
+              <div class="flex items-center pt-4 border-t border-gray-100">
+                <img 
+                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=1000&ixlib=rb-4.0.3"
+                  alt="Francesca M."
+                  class="w-12 h-12 rounded-full object-cover mr-4"
+                />
+                <div>
+                  <h4 class="font-bold">Francesca M.</h4>
+                  <p class="text-sm text-gray-500">Milano</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="bg-white p-6 sm:p-8 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col">
+              <div class="mb-6 flex-grow">
+                <div class="flex mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-italy-terracotta">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-italy-terracotta">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-italy-terracotta">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-italy-terracotta">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-italy-terracotta">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-italy-terracotta/20 mb-2">
+                  <path d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"></path>
+                  <path d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"></path>
+                </svg>
+                <p class="text-gray-700 italic mb-4">"Marco ci ha fatto vivere la costiera amalfitana come veri locali. Ci ha suggerito ristoranti incredibili e organizzato un tour in barca indimenticabile."</p>
+                <div class="text-sm text-gray-500">
+                  <span class="font-medium text-gray-700">Viaggio: </span>
+                  Vacanza in Costiera Amalfitana
+                </div>
+                <div class="text-sm text-gray-500">
+                  <span class="font-medium text-gray-700">Organizzato da: </span>
+                  Marco Bianchi
+                </div>
+              </div>
+              
+              <div class="flex items-center pt-4 border-t border-gray-100">
+                <img 
+                  src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&q=80&w=1000&ixlib=rb-4.0.3"
+                  alt="Roberto e Carla"
+                  class="w-12 h-12 rounded-full object-cover mr-4"
+                />
+                <div>
+                  <h4 class="font-bold">Roberto e Carla</h4>
+                  <p class="text-sm text-gray-500">Torino</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="bg-white p-6 sm:p-8 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col">
+              <div class="mb-6 flex-grow">
+                <div class="flex mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-italy-terracotta">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-italy-terracotta">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-italy-terracotta">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-italy-terracotta">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-italy-terracotta">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-italy-terracotta/20 mb-2">
+                  <path d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"></path>
+                  <path d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"></path>
+                </svg>
+                <p class="text-gray-700 italic mb-4">"Sofia ha reso il nostro viaggio in Sicilia speciale. I bambini hanno adorato i laboratori di ceramica e le storie sui miti locali che ha organizzato per noi."</p>
+                <div class="text-sm text-gray-500">
+                  <span class="font-medium text-gray-700">Viaggio: </span>
+                  Itinerario familiare in Sicilia
+                </div>
+                <div class="text-sm text-gray-500">
+                  <span class="font-medium text-gray-700">Organizzato da: </span>
+                  Sofia Marino
+                </div>
+              </div>
+              
+              <div class="flex items-center pt-4 border-t border-gray-100">
+                <img 
+                  src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=1000&ixlib=rb-4.0.3"
+                  alt="Famiglia Ricci"
+                  class="w-12 h-12 rounded-full object-cover mr-4"
+                />
+                <div>
+                  <h4 class="font-bold">Famiglia Ricci</h4>
+                  <p class="text-sm text-gray-500">Roma</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="text-center mt-10">
+          <a 
+            href="#" 
+            class="inline-block text-italy-terracotta font-medium hover:underline"
+          >
+            Leggi tutte le recensioni →
+          </a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-100 pt-16 pb-8">
+      <div class="container px-4 sm:px-6 lg:px-8 mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+          <div>
+            <h3 class="font-bold text-lg mb-4">CharmingItaly</h3>
+            <ul class="space-y-3">
+              <li><a href="#" class="text-gray-600 hover:text-gray-900 transition-colors duration-300">Chi siamo</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-gray-900 transition-colors duration-300">Lavora con noi</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-gray-900 transition-colors duration-300">Contattaci</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-gray-900 transition-colors duration-300">Dicono di noi</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 class="font-bold text-lg mb-4">Ospiti</h3>
+            <ul class="space-y-3">
+              <li><a href="#" class="text-gray-600 hover:text-gray-900 transition-colors duration-300">Come funziona</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-gray-900 transition-colors duration-300">Centro assistenza</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-gray-900 transition-colors duration-300">Cancellazione</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-gray-900 transition-colors duration-300">Opzioni di pagamento</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 class="font-bold text-lg mb-4">Host</h3>
+            <ul class="space-y-3">
+              <li><a href="#" class="text-gray-600 hover:text-gray-900 transition-colors duration-300">Diventa host</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-gray-900 transition-colors duration-300">Responsabilità</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-gray-900 transition-colors duration-300">Strumenti host</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-gray-900 transition-colors duration-300">Community host</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 class="font-bold text-lg mb-4">Iscriviti alla newsletter</h3>
+            <p class="text-gray-600 mb-4">Ricevi offerte esclusive e aggiornamenti sulle destinazioni più belle d'Italia.</p>
+            <div class="flex space-x-2 mb-6">
+              <input 
+                type="email" 
+                placeholder="La tua email" 
+                class="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-italy-terracotta focus:border-transparent transition-all duration-300"
+              />
+              <button class="bg-italy-terracotta text-white px-4 py-2 rounded-md hover:bg-italy-terracotta/90">
+                Iscriviti
+              </button>
+            </div>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-600 hover:text-italy-terracotta transition-colors duration-300" aria-label="Facebook">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg>
+              </a>
+              <a href="#" class="text-gray-600 hover:text-italy-terracotta transition-colors duration-300" aria-label="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+              <a href="#" class="text-gray-600 hover:text-italy-terracotta transition-colors duration-300" aria-label="Twitter">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <hr class="my-8 border-gray-200" />
+        
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="text-gray-500 text-sm mb-4 md:mb-0">
+            &copy; <span id="current-year"></span> CharmingItaly. Tutti i diritti riservati.
+          </div>
+          <div class="flex flex-wrap justify-center gap-4 text-sm">
+            <a href="#" class="text-gray-600 hover:text-gray-900 transition-colors duration-300">Privacy</a>
+            <a href="#" class="text-gray-600 hover:text-gray-900 transition-colors duration-300">Termini</a>
+            <a href="#" class="text-gray-600 hover:text-gray-900 transition-colors duration-300">Cookie</a>
+            <button class="flex items-center text-gray-600 border border-transparent hover:border-gray-300 rounded-md px-2 py-1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+              <span>Italiano (IT)</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="scripts.js"></script>
   </body>
 </html>
