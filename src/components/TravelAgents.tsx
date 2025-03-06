@@ -18,7 +18,7 @@ const agentProfiles = [
     id: 2,
     name: 'Marco Bianchi',
     region: 'Costiera Amalfitana',
-    image: 'https://images.unsplash.com/photo-1566492031773-4f4e44671857?auto=format&fit=crop&q=80&w=1000&ixlib=rb-4.0.3',
+    image: 'https://img.freepik.com/free-photo/close-up-confident-male-employee-white-collar-shirt-smiling-camera-standing-self-assured-against-studio-background_1258-26761.jpg',
     rating: 4.8,
     reviews: 98,
     specialty: 'Viaggi costieri & Escursioni in barca'
@@ -27,7 +27,7 @@ const agentProfiles = [
     id: 3,
     name: 'Sofia Marino',
     region: 'Sicilia',
-    image: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&q=80&w=1000&ixlib=rb-4.0.3',
+    image: 'https://media.istockphoto.com/id/1425797951/photo/portrait-of-beautiful-smiling-woman.jpg?s=612x612&w=0&k=20&c=0sidrZq-l5JdwBL1KWib4dbaNkg6wS3Juaa0FYUhg9E=',
     rating: 4.9,
     reviews: 156,
     specialty: 'Storia locale & Tradizioni culturali'
