@@ -32,94 +32,94 @@ const Navigation = () => {
         }
       )}
     >
-          {/* Logo */}
-          <div className="flex items-center">
-            <a href="/" className="flex items-center space-x-2">
-              <img 
-                src="https://prod-cdn.charmingitaly.com/_nuxt/img/logo.97170d3.svg" 
-                alt="Charming Italy"
-                className="h-8 w-auto"
-              />
-            </a>
-          </div>
+      <div className="container mx-auto flex items-center justify-between">
+        {/* Logo */}
+        <div className="flex items-center">
+          <a href="/" className="flex items-center space-x-2">
+            <img 
+              src="https://prod-cdn.charmingitaly.com/_nuxt/img/logo.97170d3.svg" 
+              alt="Charming Italy"
+              className="h-8 w-auto"
+            />
+          </a>
+        </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <a 
-              href="#destinations" 
-              className={cn(
-                "font-medium transition-colors duration-300 hover:text-italy-terracotta",
-                {"text-black": isScrolled, "text-white": !isScrolled}
-              )}
-            >
-              Destinazioni
-            </a>
-            <a 
-              href="#experiences" 
-              className={cn(
-                "font-medium transition-colors duration-300 hover:text-italy-terracotta",
-                {"text-black": isScrolled, "text-white": !isScrolled}
-              )}
-            >
-              Esperienze
-            </a>
-            <a 
-              href="#accommodations" 
-              className={cn(
-                "font-medium transition-colors duration-300 hover:text-italy-terracotta",
-                {"text-black": isScrolled, "text-white": !isScrolled}
-              )}
-            >
-              Alloggi
-            </a>
-          </div>
-
-          {/* User Menu */}
-          <div className="hidden md:flex items-center space-x-4">
-            <Button 
-              variant="ghost" 
-              size="sm" 
-              className={cn(
-                "rounded-full transition-colors duration-300 hover:bg-opacity-10",
-                {
-                  "text-black hover:bg-gray-200": isScrolled, 
-                  "text-white hover:bg-white": !isScrolled
-                }
-              )}
-            >
-              <Globe size={18} className="mr-1" />
-              <span>IT</span>
-            </Button>
-            
-            <Button 
-              variant="ghost" 
-              className={cn(
-                "rounded-full border transition-colors duration-300",
-                {
-                  "text-black border-gray-300 hover:bg-gray-100": isScrolled, 
-                  "text-white border-white hover:bg-white hover:bg-opacity-10": !isScrolled
-                }
-              )}
-            >
-              <User size={18} className="mr-2" />
-              <span>Accedi</span>
-            </Button>
-          </div>
-
-          {/* Mobile menu button */}
-          <button 
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center space-x-8">
+          <a 
+            href="#destinations" 
             className={cn(
-              "md:hidden p-2 rounded-full transition-colors duration-300",
+              "font-medium transition-colors duration-300 hover:text-italy-terracotta",
+              {"text-black": isScrolled, "text-white": !isScrolled}
+            )}
+          >
+            Destinazioni
+          </a>
+          <a 
+            href="#experiences" 
+            className={cn(
+              "font-medium transition-colors duration-300 hover:text-italy-terracotta",
+              {"text-black": isScrolled, "text-white": !isScrolled}
+            )}
+          >
+            Esperienze
+          </a>
+          <a 
+            href="#accommodations" 
+            className={cn(
+              "font-medium transition-colors duration-300 hover:text-italy-terracotta",
+              {"text-black": isScrolled, "text-white": !isScrolled}
+            )}
+          >
+            Alloggi
+          </a>
+        </div>
+
+        {/* User Menu */}
+        <div className="hidden md:flex items-center space-x-4">
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            className={cn(
+              "rounded-full transition-colors duration-300 hover:bg-opacity-10",
               {
-                "text-black": isScrolled, 
-                "text-white": !isScrolled
+                "text-black hover:bg-gray-200": isScrolled, 
+                "text-white hover:bg-white": !isScrolled
               }
             )}
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+            <Globe size={18} className="mr-1" />
+            <span>IT</span>
+          </Button>
+          
+          <Button 
+            variant="ghost" 
+            className={cn(
+              "rounded-full border transition-colors duration-300",
+              {
+                "text-black border-gray-300 hover:bg-gray-100": isScrolled, 
+                "text-white border-white hover:bg-white hover:bg-opacity-10": !isScrolled
+              }
+            )}
+          >
+            <User size={18} className="mr-2" />
+            <span>Accedi</span>
+          </Button>
         </div>
+
+        {/* Mobile menu button */}
+        <button 
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className={cn(
+            "md:hidden p-2 rounded-full transition-colors duration-300",
+            {
+              "text-black": isScrolled, 
+              "text-white": !isScrolled
+            }
+          )}
+        >
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
 
       {/* Mobile menu */}
