@@ -8,7 +8,7 @@ const destinations = [
     id: 1,
     name: 'Toscana',
     image: 'https://www.voglioviverecosi.com/wp-content/uploads/2021/01/andare-a-vivere-in-toscana.jpg',
-    accomodations: 458
+    properties: 458
   },
   {
     id: 2,
@@ -92,7 +92,7 @@ const Destinations = () => {
                   />
                   <div className="absolute bottom-0 left-0 z-20 p-6 text-white">
                     <h3 className="text-2xl font-bold mb-1">{destination.name}</h3>
-                    <p className="text-white/80">{destination.properties} proprietà</p>
+                    <p className="text-white/80">{destination.properties} Accomodation</p>
                   </div>
                 </div>
               </a>
