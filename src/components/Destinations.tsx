@@ -25,19 +25,19 @@ const destinations = [
   {
     id: 4,
     name: 'Sicilia',
-    image: 'https://images.unsplash.com/photo-1523365280197-dbf36f767778?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3',
+    image: 'https://travel.thewom.it/content/uploads/sites/4/2022/12/Shutterstock_512983606-scaled.jpg',
     properties: 389
   },
   {
     id: 5,
     name: 'Lago di Como',
-    image: 'https://images.unsplash.com/photo-1583648870855-1bed8c439a1e?auto=format&fit=crop&q=80&w=2071&ixlib=rb-4.0.3',
+    image: 'https://www.lombardiafacile.regione.lombardia.it/wps/wcm/connect/4def2e43-e867-4eef-a96a-6689cf3837a3/Varenna%2Blago%2Bdi%2BComo_02.jpg?MOD=AJPERES&CACHEID=ROOTWORKSPACE-4def2e43-e867-4eef-a96a-6689cf3837a3-my56v.x',
     properties: 156
   },
   {
     id: 6,
     name: 'Cinque Terre',
-    image: 'https://images.unsplash.com/photo-1591804206650-1e83dae3efd2?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3',
+    image: 'https://ingitainsieme.com/wp-content/uploads/2025/01/Gita-di-un-giorno-Cinque-Terre.png',
     properties: 113
   }
 ];
