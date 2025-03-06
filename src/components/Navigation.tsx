@@ -73,6 +73,24 @@ const Navigation = () => {
           >
             Alloggi
           </a>
+          <a 
+            href="#blog" 
+            className={cn(
+              "font-medium transition-colors duration-300 hover:text-italy-terracotta",
+              {"text-black": isScrolled, "text-white": !isScrolled}
+            )}
+          >
+            Blog
+          </a>
+          <a 
+            href="#contact" 
+            className={cn(
+              "font-medium transition-colors duration-300 hover:text-italy-terracotta",
+              {"text-black": isScrolled, "text-white": !isScrolled}
+            )}
+          >
+            Contatta i nostri esperti
+          </a>
         </div>
 
         {/* User Menu */}
@@ -143,6 +161,18 @@ const Navigation = () => {
               className="block py-2 font-medium text-gray-800 hover:text-italy-terracotta"
             >
               Alloggi
+            </a>
+            <a 
+              href="#blog" 
+              className="block py-2 font-medium text-gray-800 hover:text-italy-terracotta"
+            >
+              Blog
+            </a>
+            <a 
+              href="#contact" 
+              className="block py-2 font-medium text-gray-800 hover:text-italy-terracotta"
+            >
+              Contatta i nostri esperti
             </a>
             <Separator />
             <div className="flex items-center justify-between py-2">
