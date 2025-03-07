@@ -3,80 +3,12 @@ import React from 'react';
 import { Facebook, Instagram, Twitter, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
+import Link from 'next/link';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   return (
-    import Link from "next/link";
-
-export default function Footer() {
-  return (
-    <footer className="bg-white py-8">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Regions List */}
-          <div>
-            <ul className="space-y-4">
-              <li>
-                <div className="flex items-center justify-end">
-                  <Link 
-                    href="https://www.charmingsardinia.com/sardegna/home.php"
-                    title="Sardegna"
-                    target="_blank"
-                    className="pt-1 uppercase text-ch-primary-500 hover:text-black hover:underline underline-offset-2"
-                  >
-                    Sardegna
-                  </Link>
-                  <div className="w-3 h-3 ml-2 rounded-full bg-ch-primary-500"></div>
-                </div>
-              </li>
-              <li>
-                <div className="flex items-center justify-end">
-                  <Link 
-                    href="https://www.charmingtuscany.com/it"
-                    title="Toscana"
-                    target="_blank"
-                    className="pt-1 uppercase text-ch-primary-500 hover:text-black hover:underline underline-offset-2"
-                  >
-                    Toscana
-                  </Link>
-                  <div className="w-3 h-3 ml-2 rounded-full bg-[#66B2B2]"></div>
-                </div>
-              </li>
-              <li>
-                <div className="flex items-center justify-end">
-                  <Link 
-                    href="https://www.charmingsicily.com/it"
-                    title="Sicilia"
-                    target="_blank"
-                    className="pt-1 uppercase text-ch-primary-500 hover:text-black hover:underline underline-offset-2"
-                  >
-                    Sicilia
-                  </Link>
-                  <div className="w-3 h-3 ml-2 rounded-full bg-[#C44348]"></div>
-                </div>
-              </li>
-              <li>
-                <div className="flex items-center justify-end">
-                  <Link 
-                    href="https://www.charmingpuglia.com/it"
-                    title="Puglia"
-                    target="_blank"
-                    className="pt-1 uppercase text-ch-primary-500 hover:text-black hover:underline underline-offset-2"
-                  >
-                    Puglia
-                  </Link>
-                  <div className="w-3 h-3 ml-2 rounded-full bg-[#CAB277]"></div>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
-}
     <footer className="bg-gray-100 pt-16 pb-8">
       <div className="container px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
