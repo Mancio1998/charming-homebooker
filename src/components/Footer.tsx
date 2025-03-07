@@ -3,7 +3,6 @@ import React from 'react';
 import { Facebook, Instagram, Twitter, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
-import Link from 'next/link';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
