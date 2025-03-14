@@ -37,7 +37,7 @@ const SearchBar = ({ className, isSticky = false }: { className?: string; isStic
 
   return (
     <div className={cn(
-      "glass-effect rounded-xl p-2 sm:p-3 max-w-4xl w-full mx-auto transition-all duration-300",
+      "bg-white rounded-xl p-2 sm:p-3 max-w-4xl w-full mx-auto transition-all duration-300",
       scrolled ? "fixed top-4 left-0 right-0 z-40 shadow-lg" : "",
       className
     )}>
