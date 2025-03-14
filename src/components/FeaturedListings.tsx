@@ -72,7 +72,7 @@ const listings = [
     id: 8,
     title: 'Attico Vista Basilica',
     location: 'Roma, Lazio',
-    image: 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3',
+    image: 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/512911988.jpg?k=8681fb4445fcb2aa01b3cf5339d9e5e27ae11f5fceb89d30282639ffdde84ca0&o=&hp=1',
     price: 270,
     rating: 4.93,
     reviews: 103
