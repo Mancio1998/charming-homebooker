@@ -1,19 +1,44 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Search, MapPin, Calendar, User, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
-const SearchBar = ({ className }: { className?: string }) => {
+const SearchBar = ({ className, isSticky = false }: { className?: string; isSticky?: boolean }) => {
   const [activeTab, setActiveTab] = useState('stays');
   const [destination, setDestination] = useState('');
   const [dates, setDates] = useState('');
   const [guests, setGuests] = useState('');
   const [showTravelAgent, setShowTravelAgent] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const heroHeight = document.getElementById('hero')?.offsetHeight || 0;
+      const scrollPosition = window.scrollY;
+      
+      if (scrollPosition > (heroHeight * 0.7) && !scrolled) {
+        setScrolled(true);
+      } else if (scrollPosition <= (heroHeight * 0.7) && scrolled) {
+        setScrolled(false);
+      }
+    };
+
+    if (isSticky) {
+      window.addEventListener('scroll', handleScroll);
+    }
+    
+    return () => {
+      if (isSticky) {
+        window.removeEventListener('scroll', handleScroll);
+      }
+    };
+  }, [isSticky, scrolled]);
 
   return (
     <div className={cn(
-      "glass-effect rounded-xl p-2 sm:p-3 max-w-4xl w-full mx-auto",
+      "glass-effect rounded-xl p-2 sm:p-3 max-w-4xl w-full mx-auto transition-all duration-300",
+      scrolled ? "fixed top-4 left-0 right-0 z-40 shadow-lg" : "",
       className
     )}>
       <div className="flex items-center justify-between mb-2">

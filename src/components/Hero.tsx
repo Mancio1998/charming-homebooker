@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 const Hero = () => {
   return (
-    <div className="relative h-screen min-h-[600px] w-full overflow-hidden">
+    <div id="hero" className="relative h-screen min-h-[600px] w-full overflow-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center filter-grayscale"
@@ -53,7 +53,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.6 }}
         >
-          <SearchBar />
+          <SearchBar isSticky={true} />
         </motion.div>
         
         <motion.div 
