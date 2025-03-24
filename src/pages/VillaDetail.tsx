@@ -42,6 +42,7 @@ const villaData = {
     'https://cf.bstatic.com/xdata/images/hotel/max1280x900/281913910.jpg?k=de7c7a26aab5121ced62a2b58955fd296f02e6c3cfe6b9382a789aab36a213d5&o=&hp=1',
     'https://cf.bstatic.com/xdata/images/hotel/max1280x900/281913927.jpg?k=c450cda25eebd44040e782091c4b106c34fb54fca73de4e8d03da6c14b2e98a6&o=&hp=1',
     'https://cf.bstatic.com/xdata/images/hotel/max1280x900/281913913.jpg?k=26d67b73ced273dedefc9a143e5982038f1371e94595653f7483e6817b95219f&o=&hp=1'
+  ]
 };
 
 const fadeIn = {
