@@ -12,6 +12,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Star, Heart, MapPin, Award, Users, Calendar, Home } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Calendar as CalendarComponent } from "@/components/ui/calendar";
 
 const villaData = {
   id: 1,
@@ -42,6 +43,49 @@ const villaData = {
     'https://cf.bstatic.com/xdata/images/hotel/max1280x900/281913910.jpg?k=de7c7a26aab5121ced62a2b58955fd296f02e6c3cfe6b9382a789aab36a213d5&o=&hp=1',
     'https://cf.bstatic.com/xdata/images/hotel/max1280x900/281913927.jpg?k=c450cda25eebd44040e782091c4b106c34fb54fca73de4e8d03da6c14b2e98a6&o=&hp=1',
     'https://cf.bstatic.com/xdata/images/hotel/max1280x900/281913913.jpg?k=26d67b73ced273dedefc9a143e5982038f1371e94595653f7483e6817b95219f&o=&hp=1'
+  ],
+  nearbyAttractions: [
+    {
+      title: 'Spiaggia di Positano',
+      description: 'Una delle spiagge più iconiche d\'Italia, con acque cristalline e vista sulla città colorata.',
+      distance: '5 minuti a piedi'
+    },
+    {
+      title: 'Sentiero degli Dei',
+      description: 'Un sentiero escursionistico che offre panorami mozzafiato sulla costiera amalfitana.',
+      distance: '15 minuti in auto'
+    },
+    {
+      title: 'Grotta dello Smeraldo',
+      description: 'Una grotta marina con acqua verde smeraldo creata da riflessi di luce naturale.',
+      distance: '25 minuti in auto'
+    },
+    {
+      title: 'Ravello',
+      description: 'Elegante cittadina collinare famosa per i suoi giardini panoramici e concerti estivi.',
+      distance: '40 minuti in auto'
+    }
+  ],
+  unavailableDates: [
+    new Date(2025, 5, 15),
+    new Date(2025, 5, 16),
+    new Date(2025, 5, 17),
+    new Date(2025, 5, 25),
+    new Date(2025, 5, 26),
+    new Date(2025, 5, 27),
+    new Date(2025, 6, 4),
+    new Date(2025, 6, 5),
+    new Date(2025, 6, 6),
+    new Date(2025, 6, 7),
+    new Date(2025, 6, 8),
+    new Date(2025, 6, 20),
+    new Date(2025, 6, 21),
+    new Date(2025, 7, 1),
+    new Date(2025, 7, 2),
+    new Date(2025, 7, 3),
+    new Date(2025, 7, 10),
+    new Date(2025, 7, 11),
+    new Date(2025, 7, 12),
   ]
 };
 
@@ -53,9 +97,20 @@ const fadeIn = {
 const VillaDetail = () => {
   const { id } = useParams();
   const [isFavorite, setIsFavorite] = useState(false);
+  const [selectedDates, setSelectedDates] = useState<Date | undefined>(new Date(2025, 5, 23));
+  const [endDate, setEndDate] = useState<Date | undefined>(new Date(2025, 5, 30));
 
   // Normally we would fetch data based on the ID, but for now we'll use our hardcoded data
   const villa = villaData;
+
+  // Function to determine if a date is unavailable
+  const isDateUnavailable = (date: Date) => {
+    return villa.unavailableDates.some(unavailableDate => 
+      date.getDate() === unavailableDate.getDate() && 
+      date.getMonth() === unavailableDate.getMonth() && 
+      date.getFullYear() === unavailableDate.getFullYear()
+    );
+  };
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-7xl">
@@ -128,13 +183,10 @@ const VillaDetail = () => {
         >
           <div className="flex justify-between items-start border-b pb-6 mb-6">
             <div>
-              <h2 className="text-2xl font-bold mb-2">Villa ospitata da {villa.host}</h2>
+              <h2 className="text-2xl font-bold mb-2">Villa con {villa.bedrooms} camere</h2>
               <div className="text-gray-600">
                 {villa.guests} ospiti · {villa.bedrooms} camere · {villa.beds} letti · {villa.baths} bagni
               </div>
-            </div>
-            <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center text-xl font-bold">
-              {villa.host.charAt(0)}
             </div>
           </div>
 
@@ -150,8 +202,7 @@ const VillaDetail = () => {
               <div className="flex items-center gap-4">
                 <Award size={24} className="text-gray-700" />
                 <div>
-                  <div className="font-medium">Host esperto</div>
-                  <div className="text-gray-600 text-sm">Host dal {villa.hostSince}</div>
+                  <div className="font-medium">Selected by Charming</div>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -165,13 +216,29 @@ const VillaDetail = () => {
 
             <p className="text-gray-700 mb-6">{villa.description}</p>
 
-            <div className="mb-6">
+            <div className="mb-10">
               <h3 className="text-xl font-bold mb-4">Cosa troverai</h3>
               <div className="grid grid-cols-2 gap-3">
                 {villa.amenities.map((amenity, index) => (
                   <div key={index} className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 bg-italy-terracotta rounded-full"></div>
                     <span>{amenity}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="mb-10">
+              <h3 className="text-xl font-bold mb-4">Da vedere nei dintorni</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {villa.nearbyAttractions.map((attraction, index) => (
+                  <div key={index} className="border rounded-lg p-4 hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-lg mb-1">{attraction.title}</h4>
+                    <p className="text-gray-600 mb-2 text-sm">{attraction.description}</p>
+                    <div className="flex items-center text-sm">
+                      <MapPin size={16} className="text-italy-terracotta mr-1" />
+                      <span>{attraction.distance}</span>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -214,6 +281,32 @@ const VillaDetail = () => {
                       <div>30/06/2025</div>
                     </div>
                   </div>
+                  
+                  <div className="border rounded-lg p-3">
+                    <CalendarComponent
+                      mode="range"
+                      selected={{ from: selectedDates, to: endDate }}
+                      onSelect={(range) => {
+                        if (range) {
+                          setSelectedDates(range.from);
+                          setEndDate(range.to);
+                        }
+                      }}
+                      defaultMonth={new Date(2025, 5)}
+                      className="p-3 pointer-events-auto"
+                      modifiers={{
+                        unavailable: villa.unavailableDates,
+                      }}
+                      modifiersStyles={{
+                        unavailable: { backgroundColor: "rgba(255, 0, 0, 0.1)" }
+                      }}
+                      disabled={isDateUnavailable}
+                    />
+                    <div className="flex items-center mt-3 text-xs">
+                      <div className="w-3 h-3 bg-red-100 rounded-full mr-2"></div>
+                      <span className="text-gray-600">Date non disponibili</span>
+                    </div>
+                  </div>
                 </TabsContent>
                 <TabsContent value="guests" className="space-y-4">
                   <div className="border rounded-lg p-3">
@@ -241,17 +334,9 @@ const VillaDetail = () => {
                   <span className="underline">€{villa.price} x 7 notti</span>
                   <span>€{villa.price * 7}</span>
                 </div>
-                <div className="flex justify-between">
-                  <span className="underline">Costi di pulizia</span>
-                  <span>€120</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="underline">Tassa di soggiorno</span>
-                  <span>€45</span>
-                </div>
                 <div className="flex justify-between font-bold pt-4 border-t">
                   <span>Totale</span>
-                  <span>€{villa.price * 7 + 120 + 45}</span>
+                  <span>€{villa.price * 7}</span>
                 </div>
               </div>
             </CardContent>
