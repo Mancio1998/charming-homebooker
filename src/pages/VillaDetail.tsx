@@ -196,7 +196,7 @@ const VillaDetail = () => {
                 <Home size={24} className="text-gray-700" />
                 <div>
                   <div className="font-medium">Villa intera</div>
-                  <div className="text-gray-600 text-sm">Avrai la struttura a tuo disposizione</div>
+                  <div className="text-gray-600 text-sm">Avrai la struttura a tua disposizione</div>
                 </div>
               </div>
               <div className="flex items-center gap-4">
