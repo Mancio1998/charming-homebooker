@@ -13,6 +13,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Star, Heart, MapPin, Award, Users, Calendar, Home } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Calendar as CalendarComponent } from "@/components/ui/calendar";
+import Navigation from '@/components/Navigation';
 
 const villaData = {
   id: 1,
@@ -113,235 +114,238 @@ const VillaDetail = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-7xl">
-      <motion.div 
-        initial="hidden"
-        animate="visible"
-        variants={fadeIn}
-        className="mb-6"
-      >
-        <h1 className="text-3xl font-bold mb-2">{villa.title}</h1>
-        <div className="flex justify-between items-center">
-          <div className="flex items-center gap-2">
-            <div className="flex items-center">
-              <Star size={18} className="text-italy-terracotta fill-italy-terracotta mr-1" />
-              <span className="font-medium">{villa.rating}</span>
+    <div>
+      <Navigation />
+      <div className="container mx-auto px-4 py-8 max-w-7xl mt-16">
+        <motion.div 
+          initial="hidden"
+          animate="visible"
+          variants={fadeIn}
+          className="mb-6"
+        >
+          <h1 className="text-3xl font-bold mb-2">{villa.title}</h1>
+          <div className="flex justify-between items-center">
+            <div className="flex items-center gap-2">
+              <div className="flex items-center">
+                <Star size={18} className="text-italy-terracotta fill-italy-terracotta mr-1" />
+                <span className="font-medium">{villa.rating}</span>
+                <span className="mx-1">·</span>
+                <span className="text-gray-600 underline">{villa.reviews} recensioni</span>
+              </div>
               <span className="mx-1">·</span>
-              <span className="text-gray-600 underline">{villa.reviews} recensioni</span>
+              <div className="flex items-center">
+                <MapPin size={18} className="text-gray-600 mr-1" />
+                <span className="text-gray-600 underline">{villa.location}</span>
+              </div>
             </div>
-            <span className="mx-1">·</span>
-            <div className="flex items-center">
-              <MapPin size={18} className="text-gray-600 mr-1" />
-              <span className="text-gray-600 underline">{villa.location}</span>
-            </div>
+            <button 
+              onClick={() => setIsFavorite(!isFavorite)}
+              className="flex items-center gap-1 text-gray-600 hover:text-italy-terracotta transition-colors duration-300"
+            >
+              <Heart size={18} className={isFavorite ? "fill-italy-terracotta text-italy-terracotta" : ""} />
+              <span className="underline">Salva</span>
+            </button>
           </div>
-          <button 
-            onClick={() => setIsFavorite(!isFavorite)}
-            className="flex items-center gap-1 text-gray-600 hover:text-italy-terracotta transition-colors duration-300"
+        </motion.div>
+
+        <motion.div 
+          initial="hidden"
+          animate="visible"
+          variants={fadeIn}
+          className="mb-8"
+        >
+          <Carousel className="w-full">
+            <CarouselContent>
+              {villa.images.map((image, index) => (
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                  <div className="p-1">
+                    <div className="overflow-hidden rounded-xl aspect-[4/3]">
+                      <img
+                        src={image}
+                        alt={`Villa image ${index + 1}`}
+                        className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                      />
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="hidden md:block">
+              <CarouselPrevious className="left-2" />
+              <CarouselNext className="right-2" />
+            </div>
+          </Carousel>
+        </motion.div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <motion.div 
+            initial="hidden"
+            animate="visible"
+            variants={fadeIn}
+            className="col-span-2"
           >
-            <Heart size={18} className={isFavorite ? "fill-italy-terracotta text-italy-terracotta" : ""} />
-            <span className="underline">Salva</span>
-          </button>
-        </div>
-      </motion.div>
-
-      <motion.div 
-        initial="hidden"
-        animate="visible"
-        variants={fadeIn}
-        className="mb-8"
-      >
-        <Carousel className="w-full">
-          <CarouselContent>
-            {villa.images.map((image, index) => (
-              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                <div className="p-1">
-                  <div className="overflow-hidden rounded-xl aspect-[4/3]">
-                    <img
-                      src={image}
-                      alt={`Villa image ${index + 1}`}
-                      className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
-                    />
-                  </div>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <div className="hidden md:block">
-            <CarouselPrevious className="left-2" />
-            <CarouselNext className="right-2" />
-          </div>
-        </Carousel>
-      </motion.div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <motion.div 
-          initial="hidden"
-          animate="visible"
-          variants={fadeIn}
-          className="col-span-2"
-        >
-          <div className="flex justify-between items-start border-b pb-6 mb-6">
-            <div>
-              <h2 className="text-2xl font-bold mb-2">Villa con {villa.bedrooms} camere</h2>
-              <div className="text-gray-600">
-                {villa.guests} ospiti · {villa.bedrooms} camere · {villa.beds} letti · {villa.baths} bagni
-              </div>
-            </div>
-          </div>
-
-          <div className="mb-8">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-              <div className="flex items-center gap-4">
-                <Home size={24} className="text-gray-700" />
-                <div>
-                  <div className="font-medium">Villa intera</div>
-                  <div className="text-gray-600 text-sm">Avrai la struttura a tua disposizione</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <Award size={24} className="text-gray-700" />
-                <div>
-                  <div className="font-medium">Selected by Charming</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <MapPin size={24} className="text-gray-700" />
-                <div>
-                  <div className="font-medium">Ottima posizione</div>
-                  <div className="text-gray-600 text-sm">Vista mare spettacolare</div>
+            <div className="flex justify-between items-start border-b pb-6 mb-6">
+              <div>
+                <h2 className="text-2xl font-bold mb-2">Villa con {villa.bedrooms} camere</h2>
+                <div className="text-gray-600">
+                  {villa.guests} ospiti · {villa.bedrooms} camere · {villa.beds} letti · {villa.baths} bagni
                 </div>
               </div>
             </div>
 
-            <p className="text-gray-700 mb-6">{villa.description}</p>
-
-            <div className="mb-10">
-              <h3 className="text-xl font-bold mb-4">Cosa troverai</h3>
-              <div className="grid grid-cols-2 gap-3">
-                {villa.amenities.map((amenity, index) => (
-                  <div key={index} className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 bg-italy-terracotta rounded-full"></div>
-                    <span>{amenity}</span>
+            <div className="mb-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                <div className="flex items-center gap-4">
+                  <Home size={24} className="text-gray-700" />
+                  <div>
+                    <div className="font-medium">Villa intera</div>
+                    <div className="text-gray-600 text-sm">Avrai la struttura a tua disposizione</div>
                   </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="mb-10">
-              <h3 className="text-xl font-bold mb-4">Da vedere nei dintorni</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {villa.nearbyAttractions.map((attraction, index) => (
-                  <div key={index} className="border rounded-lg p-4 hover:shadow-md transition-shadow">
-                    <h4 className="font-bold text-lg mb-1">{attraction.title}</h4>
-                    <p className="text-gray-600 mb-2 text-sm">{attraction.description}</p>
-                    <div className="flex items-center text-sm">
-                      <MapPin size={16} className="text-italy-terracotta mr-1" />
-                      <span>{attraction.distance}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        <motion.div 
-          initial="hidden"
-          animate="visible"
-          variants={fadeIn}
-          className="col-span-1"
-        >
-          <Card className="sticky top-24">
-            <CardHeader>
-              <CardTitle className="flex justify-between items-start">
-                <span className="text-xl">€{villa.price} <span className="text-gray-500 font-normal">notte</span></span>
-                <div className="flex items-center text-sm">
-                  <Star size={16} className="text-italy-terracotta fill-italy-terracotta mr-1" />
-                  <span>{villa.rating}</span>
-                  <span className="mx-1">·</span>
-                  <span className="text-gray-600 underline">{villa.reviews} recensioni</span>
                 </div>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <Tabs defaultValue="dates" className="w-full">
-                <TabsList className="grid w-full grid-cols-2 mb-4">
-                  <TabsTrigger value="dates">Date</TabsTrigger>
-                  <TabsTrigger value="guests">Ospiti</TabsTrigger>
-                </TabsList>
-                <TabsContent value="dates" className="space-y-4">
-                  <div className="grid grid-cols-2 border rounded-lg overflow-hidden">
-                    <div className="p-3 border-r">
-                      <div className="text-xs font-medium">CHECK-IN</div>
-                      <div>23/06/2025</div>
-                    </div>
-                    <div className="p-3">
-                      <div className="text-xs font-medium">CHECK-OUT</div>
-                      <div>30/06/2025</div>
-                    </div>
+                <div className="flex items-center gap-4">
+                  <Award size={24} className="text-gray-700" />
+                  <div>
+                    <div className="font-medium">Selected by Charming</div>
                   </div>
-                  
-                  <div className="border rounded-lg p-3">
-                    <CalendarComponent
-                      mode="range"
-                      selected={{ from: selectedDates, to: endDate }}
-                      onSelect={(range) => {
-                        if (range) {
-                          setSelectedDates(range.from);
-                          setEndDate(range.to);
-                        }
-                      }}
-                      defaultMonth={new Date(2025, 5)}
-                      className="p-3 pointer-events-auto"
-                      modifiers={{
-                        unavailable: villa.unavailableDates,
-                      }}
-                      modifiersStyles={{
-                        unavailable: { backgroundColor: "rgba(255, 0, 0, 0.1)" }
-                      }}
-                      disabled={isDateUnavailable}
-                    />
-                    <div className="flex items-center mt-3 text-xs">
-                      <div className="w-3 h-3 bg-red-100 rounded-full mr-2"></div>
-                      <span className="text-gray-600">Date non disponibili</span>
-                    </div>
+                </div>
+                <div className="flex items-center gap-4">
+                  <MapPin size={24} className="text-gray-700" />
+                  <div>
+                    <div className="font-medium">Ottima posizione</div>
+                    <div className="text-gray-600 text-sm">Vista mare spettacolare</div>
                   </div>
-                </TabsContent>
-                <TabsContent value="guests" className="space-y-4">
-                  <div className="border rounded-lg p-3">
-                    <div className="flex justify-between items-center">
-                      <div>
-                        <div className="font-medium">Ospiti</div>
-                        <div className="text-gray-600 text-sm">Aggiungi ospiti</div>
+                </div>
+              </div>
+
+              <p className="text-gray-700 mb-6">{villa.description}</p>
+
+              <div className="mb-10">
+                <h3 className="text-xl font-bold mb-4">Cosa troverai</h3>
+                <div className="grid grid-cols-2 gap-3">
+                  {villa.amenities.map((amenity, index) => (
+                    <div key={index} className="flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 bg-italy-terracotta rounded-full"></div>
+                      <span>{amenity}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mb-10">
+                <h3 className="text-xl font-bold mb-4">Da vedere nei dintorni</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {villa.nearbyAttractions.map((attraction, index) => (
+                    <div key={index} className="border rounded-lg p-4 hover:shadow-md transition-shadow">
+                      <h4 className="font-bold text-lg mb-1">{attraction.title}</h4>
+                      <p className="text-gray-600 mb-2 text-sm">{attraction.description}</p>
+                      <div className="flex items-center text-sm">
+                        <MapPin size={16} className="text-italy-terracotta mr-1" />
+                        <span>{attraction.distance}</span>
                       </div>
-                      <Users size={20} className="text-gray-600" />
                     </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div 
+            initial="hidden"
+            animate="visible"
+            variants={fadeIn}
+            className="col-span-1"
+          >
+            <Card className="sticky top-24">
+              <CardHeader>
+                <CardTitle className="flex justify-between items-start">
+                  <span className="text-xl">€{villa.price} <span className="text-gray-500 font-normal">notte</span></span>
+                  <div className="flex items-center text-sm">
+                    <Star size={16} className="text-italy-terracotta fill-italy-terracotta mr-1" />
+                    <span>{villa.rating}</span>
+                    <span className="mx-1">·</span>
+                    <span className="text-gray-600 underline">{villa.reviews} recensioni</span>
                   </div>
-                </TabsContent>
-              </Tabs>
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <Tabs defaultValue="dates" className="w-full">
+                  <TabsList className="grid w-full grid-cols-2 mb-4">
+                    <TabsTrigger value="dates">Date</TabsTrigger>
+                    <TabsTrigger value="guests">Ospiti</TabsTrigger>
+                  </TabsList>
+                  <TabsContent value="dates" className="space-y-4">
+                    <div className="grid grid-cols-2 border rounded-lg overflow-hidden">
+                      <div className="p-3 border-r">
+                        <div className="text-xs font-medium">CHECK-IN</div>
+                        <div>23/06/2025</div>
+                      </div>
+                      <div className="p-3">
+                        <div className="text-xs font-medium">CHECK-OUT</div>
+                        <div>30/06/2025</div>
+                      </div>
+                    </div>
+                    
+                    <div className="border rounded-lg p-3">
+                      <CalendarComponent
+                        mode="range"
+                        selected={{ from: selectedDates, to: endDate }}
+                        onSelect={(range) => {
+                          if (range) {
+                            setSelectedDates(range.from);
+                            setEndDate(range.to);
+                          }
+                        }}
+                        defaultMonth={new Date(2025, 5)}
+                        className="p-3 pointer-events-auto"
+                        modifiers={{
+                          unavailable: villa.unavailableDates,
+                        }}
+                        modifiersStyles={{
+                          unavailable: { backgroundColor: "rgba(255, 0, 0, 0.1)" }
+                        }}
+                        disabled={isDateUnavailable}
+                      />
+                      <div className="flex items-center mt-3 text-xs">
+                        <div className="w-3 h-3 bg-red-100 rounded-full mr-2"></div>
+                        <span className="text-gray-600">Date non disponibili</span>
+                      </div>
+                    </div>
+                  </TabsContent>
+                  <TabsContent value="guests" className="space-y-4">
+                    <div className="border rounded-lg p-3">
+                      <div className="flex justify-between items-center">
+                        <div>
+                          <div className="font-medium">Ospiti</div>
+                          <div className="text-gray-600 text-sm">Aggiungi ospiti</div>
+                        </div>
+                        <Users size={20} className="text-gray-600" />
+                      </div>
+                    </div>
+                  </TabsContent>
+                </Tabs>
 
-              <button className="w-full bg-italy-terracotta hover:bg-italy-terracotta/90 text-white py-3 rounded-lg font-medium mt-4 transition-colors duration-300">
-                Prenota
-              </button>
+                <button className="w-full bg-italy-terracotta hover:bg-italy-terracotta/90 text-white py-3 rounded-lg font-medium mt-4 transition-colors duration-300">
+                  Prenota
+                </button>
 
-              <div className="mt-4 text-center text-gray-500 text-sm">
-                Non ti verrà addebitato nulla in questa fase
-              </div>
-
-              <div className="mt-6 space-y-4">
-                <div className="flex justify-between">
-                  <span className="underline">€{villa.price} x 7 notti</span>
-                  <span>€{villa.price * 7}</span>
+                <div className="mt-4 text-center text-gray-500 text-sm">
+                  Non ti verrà addebitato nulla in questa fase
                 </div>
-                <div className="flex justify-between font-bold pt-4 border-t">
-                  <span>Totale</span>
-                  <span>€{villa.price * 7}</span>
+
+                <div className="mt-6 space-y-4">
+                  <div className="flex justify-between">
+                    <span className="underline">€{villa.price} x 7 notti</span>
+                    <span>€{villa.price * 7}</span>
+                  </div>
+                  <div className="flex justify-between font-bold pt-4 border-t">
+                    <span>Totale</span>
+                    <span>€{villa.price * 7}</span>
+                  </div>
                 </div>
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
+              </CardContent>
+            </Card>
+          </motion.div>
+        </div>
       </div>
     </div>
   );
