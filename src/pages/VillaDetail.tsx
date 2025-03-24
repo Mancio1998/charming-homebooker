@@ -39,12 +39,9 @@ const villaData = {
   ],
   images: [
     'https://www.amorerentals.com/it/affitti/fotos/2/160958411985622ebfa96b1047ad733624f12a8170/1609584121904f5bd9f4647dfc23b33fea6cbc6c69.jpg',
-    'https://cf.bstatic.com/xdata/images/hotel/max1024x768/327388243.jpg?k=f127a60c35e656957634c12af12c0537af7d12194ff59eafbdf40a51aabe0fe8&o=&hp=1',
-    'https://static.immobiliare.it/Nca/fit_1190_x_720/cs/varie/magazine/2019_06/1560863400-villa1.jpg',
-    'https://www.riccardorealtymatera.it/wp-content/uploads/2020/11/villa-con-piscina-vista-mare1.jpg',
-    'https://d2cvoeh1e7km16.cloudfront.net/locations/15c7ba_x8qbp_5daf95950c1cc.jpg',
-    'https://images.squarespace-cdn.com/content/v1/61784183daf30564b2c22cee/86ae5531-d42d-44b0-93c7-0bd5fe57c5b4/Hotel+Marincanto+Room+38+PH-68.jpg'
-  ]
+    'https://cf.bstatic.com/xdata/images/hotel/max1280x900/281913910.jpg?k=de7c7a26aab5121ced62a2b58955fd296f02e6c3cfe6b9382a789aab36a213d5&o=&hp=1',
+    'https://cf.bstatic.com/xdata/images/hotel/max1280x900/281913927.jpg?k=c450cda25eebd44040e782091c4b106c34fb54fca73de4e8d03da6c14b2e98a6&o=&hp=1',
+    'https://cf.bstatic.com/xdata/images/hotel/max1280x900/281913913.jpg?k=26d67b73ced273dedefc9a143e5982038f1371e94595653f7483e6817b95219f&o=&hp=1'
 };
 
 const fadeIn = {
