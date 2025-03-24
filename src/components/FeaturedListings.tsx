@@ -3,6 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Star, Heart } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Link } from 'react-router-dom';
 
 const listings = [
   {
@@ -115,34 +116,67 @@ const FeaturedListings = () => {
         >
           {listings.map((listing) => (
             <motion.div key={listing.id} variants={item}>
-              <div className="group h-full rounded-xl overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md">
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <img 
-                    src={listing.image} 
-                    alt={listing.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <button 
-                    className="absolute top-3 right-3 p-2 rounded-full bg-white/80 hover:bg-white transition-colors duration-300 z-10"
-                    aria-label="Save to favorites"
-                  >
-                    <Heart size={18} className="text-gray-700" />
-                  </button>
-                </div>
-                <div className="p-4">
-                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="font-bold text-lg line-clamp-1">{listing.title}</h3>
-                    <div className="flex items-center">
-                      <Star size={16} className="text-italy-terracotta fill-italy-terracotta mr-1" />
-                      <span className="font-medium">{listing.rating}</span>
+              {listing.id === 1 ? (
+                <Link to={`/villa/${listing.id}`} className="block h-full">
+                  <div className="group h-full rounded-xl overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md">
+                    <div className="relative aspect-[4/3] overflow-hidden">
+                      <img 
+                        src={listing.image} 
+                        alt={listing.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <button 
+                        className="absolute top-3 right-3 p-2 rounded-full bg-white/80 hover:bg-white transition-colors duration-300 z-10"
+                        aria-label="Save to favorites"
+                      >
+                        <Heart size={18} className="text-gray-700" />
+                      </button>
+                    </div>
+                    <div className="p-4">
+                      <div className="flex justify-between items-start mb-2">
+                        <h3 className="font-bold text-lg line-clamp-1">{listing.title}</h3>
+                        <div className="flex items-center">
+                          <Star size={16} className="text-italy-terracotta fill-italy-terracotta mr-1" />
+                          <span className="font-medium">{listing.rating}</span>
+                        </div>
+                      </div>
+                      <p className="text-gray-500 mb-3">{listing.location}</p>
+                      <p className="font-medium">
+                        <span className="text-lg">€{listing.price}</span> <span className="text-gray-500">/ notte</span>
+                      </p>
                     </div>
                   </div>
-                  <p className="text-gray-500 mb-3">{listing.location}</p>
-                  <p className="font-medium">
-                    <span className="text-lg">€{listing.price}</span> <span className="text-gray-500">/ notte</span>
-                  </p>
+                </Link>
+              ) : (
+                <div className="group h-full rounded-xl overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md">
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <img 
+                      src={listing.image} 
+                      alt={listing.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <button 
+                      className="absolute top-3 right-3 p-2 rounded-full bg-white/80 hover:bg-white transition-colors duration-300 z-10"
+                      aria-label="Save to favorites"
+                    >
+                      <Heart size={18} className="text-gray-700" />
+                    </button>
+                  </div>
+                  <div className="p-4">
+                    <div className="flex justify-between items-start mb-2">
+                      <h3 className="font-bold text-lg line-clamp-1">{listing.title}</h3>
+                      <div className="flex items-center">
+                        <Star size={16} className="text-italy-terracotta fill-italy-terracotta mr-1" />
+                        <span className="font-medium">{listing.rating}</span>
+                      </div>
+                    </div>
+                    <p className="text-gray-500 mb-3">{listing.location}</p>
+                    <p className="font-medium">
+                      <span className="text-lg">€{listing.price}</span> <span className="text-gray-500">/ notte</span>
+                    </p>
+                  </div>
                 </div>
-              </div>
+              )}
             </motion.div>
           ))}
         </motion.div>
